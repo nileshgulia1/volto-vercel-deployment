@@ -2,12 +2,12 @@ pipeline {
   environment {
     RANCHER_STACKID = ""
     RANCHER_ENVID = ""
-    GIT_NAME = "<%= name %>"
-    registry = "eeacms/<%= name %>"
-    template = "templates/<%= name %>"
+    GIT_NAME = "volto-vercel-deployment"
+    registry = "eeacms/volto-vercel-deployment"
+    template = "templates/volto-vercel-deployment"
     dockerImage = ''
     tagName = ''
-    SONARQUBE_TAG = '<%= name %>.eionet.europa.eu'
+    SONARQUBE_TAG = 'volto-vercel-deployment.eionet.europa.eu'
   }
 
   agent any

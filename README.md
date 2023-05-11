@@ -1,9 +1,9 @@
-# <%= name %>
+# volto-vercel-deployment
 
-[![Release](https://img.shields.io/github/v/release/eea/<%= name %>?sort=semver)](https://github.com/eea/<%= name %>/releases)
-[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2F<%= name %>%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto/job/<%= name %>/job/master/lastBuild/display/redirect)
-[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2F<%= name %>%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto/job/<%= name %>/job/develop/lastBuild/display/redirect)
-[![Release pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2F<%= name %>%2F0.0.0&build=last&subject=release%20v0.0.0%20pipeline)](https://ci.eionet.europa.eu/view/Github/job/volto/job/<%= name %>/job/0.0.0/lastBuild/display/redirect/)
+[![Release](https://img.shields.io/github/v/release/eea/volto-vercel-deployment?sort=semver)](https://github.com/eea/volto-vercel-deployment/releases)
+[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2Fvolto-vercel-deployment%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto/job/volto-vercel-deployment/job/master/lastBuild/display/redirect)
+[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2Fvolto-vercel-deployment%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto/job/volto-vercel-deployment/job/develop/lastBuild/display/redirect)
+[![Release pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2Fvolto-vercel-deployment%2F0.0.0&build=last&subject=release%20v0.0.0%20pipeline)](https://ci.eionet.europa.eu/view/Github/job/volto/job/volto-vercel-deployment/job/0.0.0/lastBuild/display/redirect/)
 
 
 ## Documentation
@@ -35,8 +35,8 @@ A training on how to create your own website using Volto is available as part of
 
 1. Clone:
 
-        git clone https://github.com/eea/<%= name %>.git
-        cd <%= name %>
+        git clone https://github.com/eea/volto-vercel-deployment.git
+        cd volto-vercel-deployment
 
 1. Install
 
