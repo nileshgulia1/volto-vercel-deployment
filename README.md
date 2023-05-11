@@ -1,82 +1,72 @@
-# volto-vercel-deployment
-
-[![Release](https://img.shields.io/github/v/release/eea/volto-vercel-deployment?sort=semver)](https://github.com/eea/volto-vercel-deployment/releases)
-[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2Fvolto-vercel-deployment%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto/job/volto-vercel-deployment/job/master/lastBuild/display/redirect)
-[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2Fvolto-vercel-deployment%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto/job/volto-vercel-deployment/job/develop/lastBuild/display/redirect)
-[![Release pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto%2Fvolto-vercel-deployment%2F0.0.0&build=last&subject=release%20v0.0.0%20pipeline)](https://ci.eionet.europa.eu/view/Github/job/volto/job/volto-vercel-deployment/job/0.0.0/lastBuild/display/redirect/)
-
-
 ## Documentation
 
 A training on how to create your own website using Volto is available as part of the Plone training at [https://training.plone.org/5/volto/index.html](https://training.plone.org/5/volto/index.html).
 
+## Quick Start
 
-## Getting started
+Below is a list of commands you will probably find useful.
 
-1. Install `nvm`
+### `make install`
 
-        touch ~/.bash_profile
-        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+Installs and checkouts the `mrs-developer` directives (`make develop`), creates a shortcut to the Volto source code (`omelette` folder), then triggers the install of the frontend environment.
 
-        source ~/.bash_profile
-        nvm version
+### `yarn start`
 
-1. Install latest `NodeJS 16.x`:
+Runs the project in development mode.
+You can view your application at `http://localhost:3000`
 
-        nvm install 16
-        nvm use 16
-        node -v
-        v16.16.2
+The page will reload if you make edits.
 
-1. Install `yarn`
+### `yarn build`
 
-        curl -o- -L https://yarnpkg.com/install.sh | bash
-        yarn -v
+Builds the app for production to the build folder.
 
-1. Clone:
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
 
-        git clone https://github.com/eea/volto-vercel-deployment.git
-        cd volto-vercel-deployment
+### `yarn start:prod`
 
-1. Install
+Runs the compiled app in production.
 
-        yarn build
+You can again view your application at `http://localhost:3000`
 
-1. Start backend
+### `yarn test`
 
-        docker-compose up -d
-        docker-compose logs -f
+Runs the test watcher (Jest) in an interactive mode.
+By default, runs tests related to files changed since the last commit.
 
-1. Start frontend
+### `yarn i18n`
 
-        yarn start:prod
+Runs the test i18n runner which extracts all the translation strings and
+generates the needed files.
 
-1. See application at http://localhost:3000
+### mrs-developer
 
-## Automated @eeacms dependencies upgrades
+[mrs-developer](https://github.com/collective/mrs-developer) is a great tool
+for developing multiple packages at the same time.
 
-All the addon dependencies that are located in the dependencies section of `package.json` file that belong to @eeacms and have a `MAJOR.MINOR.PATCH` version are automatically upgraded on the release of a new version of the addon. This upgrade is done directly on the `develop` branch.
+mrs-developer should work with this project by running the configured shortcut script:
 
-Exceptions from automated upgrades ( see https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies for dependency configuration examples ) :
-* All github or local paths
-* Any version intervals ( `^version` or `>version` or `MAJOR.MINOR.x` etc )
+```bash
+make develop
+```
 
-## Release
+Volto's latest razzle config will pay attention to your tsconfig.json (or jsconfig.json) file for any customizations.
 
-See [release](https://github.com/eea/ims-frontend/tree/master/RELEASE.md)
+In case you don't want (or can't) install mrs-developer globally, you can install it in this project by running:
 
-## Production
+```bash
+yarn add -W mrs-developer
+```
 
-We use [Docker](https://www.docker.com/), [Rancher](https://rancher.com/) and [Jenkins](https://jenkins.io/) to deploy this application in production.
+## Acceptance tests
 
-### Deploy
+In order to run localy (while developing) the project acceptance tests (Cypress), there are some `Makefile` commands in place (in the repo root). Run them in order:
 
-* Within `Rancher > Catalog > EEA`
+`start-test-acceptance-server`: Start server fixture in docker (previous build required)
 
-### Upgrade
+`start-test-acceptance-frontend`: Start the Core Acceptance Frontend Fixture in dev mode
 
-* Within your Rancher environment click on the `Upgrade available` yellow button next to your stack.
+`test-acceptance`: Start Core Cypress Acceptance Tests in dev mode
 
-* Confirm the upgrade
-
-* Or roll-back if something went wrong and abort the upgrade procedure.
+`full-test-acceptance`: Start the whole suite (backend + frontend + headless tests) Cypress Acceptance Tests in headless (CI) mode
